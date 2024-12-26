@@ -32,3 +32,8 @@ export enum UserStatus {
   Expiring = "expiring",
   Blocked = "blocked",
 }
+
+export enum UserType {
+  Owner = "active",
+  Accountant = "accountant",
+}
