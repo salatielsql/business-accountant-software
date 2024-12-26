@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
 import { NextRequest } from "next/server";
 import { ACCOUNT_NEXT_STEP, UserStatus, UserType } from "./app/types";
-import { getAccountNextStep } from "./app/helpers/account-next-step";
+import { getAccountNextStep } from "./helpers/account-next-step";
 
 export function middleware(request: NextRequest) {
   const { searchParams } = request.nextUrl;

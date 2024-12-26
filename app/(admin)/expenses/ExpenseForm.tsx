@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
-import { Expense } from "../types";
+import { Expense } from "../../types";
 
 export default function ExpenseForm({
   addExpense,

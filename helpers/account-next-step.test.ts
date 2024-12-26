@@ -1,6 +1,6 @@
 import { describe, expect, test } from "vitest";
 import { getAccountNextStep } from "./account-next-step";
-import { ACCOUNT_NEXT_STEP, UserStatus, UserType } from "../types";
+import { ACCOUNT_NEXT_STEP, UserStatus, UserType } from "../app/types";
 
 describe("Account Next Step", () => {
   describe("When user is Owner", () => {
