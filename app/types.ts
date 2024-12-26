@@ -26,3 +26,9 @@ export interface Report {
     total: number;
   }[];
 }
+
+export enum UserStatus {
+  Active = "active",
+  Expiring = "expiring",
+  Blocked = "blocked",
+}
