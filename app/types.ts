@@ -26,3 +26,7 @@ export interface Report {
     total: number;
   }[];
 }
+
+export const ERROR_MESSAGES = {
+  INVALID_AMOUNT: "Amount can't be less or equal to zero",
+} as const;
