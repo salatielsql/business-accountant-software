@@ -16,7 +16,7 @@ export async function generateReport({
   const start = new Date(startDate);
   const end = new Date(endDate);
 
-  let data;
+  let data: Payment[] | Expense[] = [];
   if (reportType === "expenses") {
     const expenses = await getExpenses();
     data = expenses.filter((expense) => {
@@ -25,13 +25,16 @@ export async function generateReport({
     });
 
     // Group expenses by category
-    const groupedData = data.reduce((acc, expense) => {
-      if (!acc[expense.category]) {
-        acc[expense.category] = [];
-      }
-      acc[expense.category].push(expense);
-      return acc;
-    }, {});
+    const groupedData = data.reduce(
+      (acc: Record<string, Expense[]>, expense: Expense) => {
+        if (!acc[expense.category]) {
+          acc[expense.category] = [];
+        }
+        acc[expense.category].push(expense);
+        return acc;
+      },
+      {} satisfies Record<string, Expense[]>
+    );
 
     // Calculate totals for each category
     const categoryTotals = Object.keys(groupedData).map((category) => ({
