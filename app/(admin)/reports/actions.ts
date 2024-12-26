@@ -2,7 +2,7 @@
 
 import { getExpenses } from "../expenses/actions";
 import { getPayments } from "../payments/actions";
-import { Expense, Payment, Report } from "../types";
+import { Expense, Payment, Report } from "../../types";
 
 export async function generateReport({
   startDate,

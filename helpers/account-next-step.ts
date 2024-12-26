@@ -1,4 +1,4 @@
-import { ACCOUNT_NEXT_STEP, UserStatus, UserType } from "../types";
+import { ACCOUNT_NEXT_STEP, UserStatus, UserType } from "../app/types";
 
 export function getAccountNextStep({
   userStatus,

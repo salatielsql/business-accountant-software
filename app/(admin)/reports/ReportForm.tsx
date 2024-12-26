@@ -1,7 +1,7 @@
 "use client";
 
 import { ChangeEvent, useState } from "react";
-import { Report } from "../types";
+import { Report } from "../../types";
 
 export default function ReportForm({
   generateReport,

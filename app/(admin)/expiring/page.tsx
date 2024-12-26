@@ -32,9 +32,10 @@ const ExpiringSubscription = () => {
     }, 1000);
 
     return () => clearInterval(timer);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  const TimeUnit = ({ value, label }) => (
+  const TimeUnit = ({ value, label }: { value: number; label: string }) => (
     <div className="flex flex-col items-center bg-gray-50 rounded-lg p-3">
       <span className="text-2xl font-bold text-blue-600">{value}</span>
       <span className="text-sm text-gray-600">{label}</span>
@@ -53,7 +54,7 @@ const ExpiringSubscription = () => {
 
         <CardContent>
           {/* Alert Banner */}
-          <Alert variant="warning" className="mb-6">
+          <Alert variant="destructive" className="mb-6">
             <AlertTriangle className="h-4 w-4" />
             <AlertTitle>Important Notice</AlertTitle>
             <AlertDescription>

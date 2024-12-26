@@ -1,4 +1,4 @@
-import { Expense } from "../types";
+import { Expense } from "../../types";
 
 export default function ExpenseList({ expenses }: { expenses: Expense[] }) {
   return (

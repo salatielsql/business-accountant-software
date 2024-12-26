@@ -1,7 +1,7 @@
 "use client";
 
 import { useRouter } from "next/navigation";
-import { Payment } from "../types";
+import { Payment } from "../../types";
 
 export default function PaymentList({
   payments,

@@ -1,6 +1,6 @@
 "use server";
 
-import { Expense } from "../types";
+import { Expense } from "../../types";
 
 const expenses: Expense[] = [
   {

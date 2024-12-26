@@ -1,6 +1,6 @@
 "use server";
 
-import { Payment } from "../types";
+import { Payment } from "../../types";
 
 const payments: Payment[] = [
   { id: 1, description: "Vendor Payment", amount: 500.0, status: "Pending" },
