@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import { NextRequest } from "next/server";
-import { UserStatus, UserType } from "./app/types";
+import { ACCOUNT_NEXT_STEP, UserStatus, UserType } from "./app/types";
+import { getAccountNextStep } from "./app/helpers/account-next-step";
 
 export function middleware(request: NextRequest) {
   const { searchParams } = request.nextUrl;
@@ -20,26 +21,21 @@ export function middleware(request: NextRequest) {
     }`
   );
 
-  if (userStatus === UserStatus.Active) {
-    return;
-  }
+  const nextStep = getAccountNextStep({
+    userStatus,
+    userType,
+  });
 
-  if (userType === UserType.Owner) {
-    if (userStatus === UserStatus.Blocked) {
-      return NextResponse.redirect(new URL("/blocked", request.url));
-    }
+  if (nextStep === ACCOUNT_NEXT_STEP.__NEXT) return;
 
-    if (userStatus === UserStatus.Expiring) {
-      return NextResponse.redirect(new URL("/expiring", request.url));
-    }
-  }
-
-  if (
-    userType === UserType.Accountant &&
-    (userStatus === UserStatus.Blocked || userStatus === UserStatus.Expiring)
-  ) {
+  if (nextStep === ACCOUNT_NEXT_STEP.EXIT_APP)
     return NextResponse.redirect(new URL("/", request.url));
-  }
+
+  if (nextStep === ACCOUNT_NEXT_STEP.BLOCK)
+    return NextResponse.redirect(new URL("/blocked", request.url));
+
+  if (nextStep === ACCOUNT_NEXT_STEP.EXPIRING)
+    return NextResponse.redirect(new URL("/expiring", request.url));
 }
 
 export const config = {

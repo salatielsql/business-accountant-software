@@ -34,6 +34,13 @@ export enum UserStatus {
 }
 
 export enum UserType {
-  Owner = "active",
+  Owner = "owner",
   Accountant = "accountant",
 }
+
+export const ACCOUNT_NEXT_STEP = {
+  __NEXT: "__NEXT", // continue with no redirects
+  EXIT_APP: "EXIT_APP",
+  BLOCK: "BLOCK",
+  EXPIRING: "EXPIRING",
+} as const;
