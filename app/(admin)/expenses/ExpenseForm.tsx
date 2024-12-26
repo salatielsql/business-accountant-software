@@ -18,7 +18,11 @@ export default function ExpenseForm({
     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     // @ts-ignore
     e.preventDefault();
-    await addExpense({ description, amount: parseFloat(amount), category });
+    const amountValue = parseFloat(amount);
+
+    // if (amountValue <= 0) return alert("Amount can't be less or equal to zero");
+
+    await addExpense({ description, amount: amountValue, category });
     setDescription("");
     setAmount("");
     setCategory("");

@@ -19,10 +19,14 @@ const expenses: Expense[] = [
   },
 ];
 
+// Think of this as a HTTP service.
+// Something like axios.get('/expenses')
 export async function getExpenses(): Promise<Expense[]> {
   return expenses;
 }
 
+// Think of this as a HTTP service.
+// Something like axios.post('/expenses', body)
 export async function addExpense(
   expense: Omit<Expense, "id" | "date">,
   expensesArr = expenses
