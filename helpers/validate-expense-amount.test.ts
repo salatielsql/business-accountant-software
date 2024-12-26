@@ -1,6 +1,6 @@
 import { describe, test, expect } from "vitest";
 import { validateExpenseAmount } from "./validate-expense-amount";
-import { ERROR_MESSAGES } from "../../types";
+import { ERROR_MESSAGES } from "../app/types";
 
 describe("Validate Expense Amount", () => {
   test("Should not allow to add an expense with zero amount", async () => {

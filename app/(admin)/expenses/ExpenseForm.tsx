@@ -2,8 +2,8 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
-import { Expense } from "../types";
-import { validateExpenseAmount } from "./helpers/validate-expense-amount";
+import { Expense } from "../../types";
+import { validateExpenseAmount } from "../../../helpers/validate-expense-amount";
 
 export default function ExpenseForm({
   addExpense,
