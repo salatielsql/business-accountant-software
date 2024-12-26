@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { Expense } from "../types";
+import { validateExpenseAmount } from "./helpers/validate-expense-amount";
 
 export default function ExpenseForm({
   addExpense,
@@ -18,11 +19,13 @@ export default function ExpenseForm({
     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     // @ts-ignore
     e.preventDefault();
-    const amountValue = parseFloat(amount);
+    const validatedAmount = await validateExpenseAmount(amount);
 
-    // if (amountValue <= 0) return alert("Amount can't be less or equal to zero");
+    if (validatedAmount instanceof Error) {
+      return alert(validatedAmount.message);
+    }
 
-    await addExpense({ description, amount: amountValue, category });
+    await addExpense({ description, amount: validatedAmount, category });
     setDescription("");
     setAmount("");
     setCategory("");
